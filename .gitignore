@@ -1,6 +1,10 @@
 data/
 build/
 
+test_data/genomes/
+test_data/genomes_metadata.csv
+test_data/missing_accessions.txt
+
 # Node
 logs
 *.log
