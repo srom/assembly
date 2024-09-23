@@ -94,7 +94,7 @@ def main():
         sys.exit(1)
 
     if summary_path is None:
-        logger.info('No NCBI assembly summary file found - downloading from NCBI (it takes a a minute or so)')
+        logger.info('No NCBI assembly summary file found - downloading from NCBI (should take a couple of minutes)')
         assembly_summary_df = download_latest_assembly_summary_as_df()
     else:
         logger.info(f'Loading assembly summary from {summary_path}')
