@@ -40,7 +40,7 @@ GCA_dummy0001.1
 python -m src.fetch_assemblies -l test_data/assembly_accessions.txt -o test_data
 ```
 
-3. Concatenate all proteins sequences in one fasta files (optional)
+3. Concatenate all proteins sequences in one fasta file (optional)
 
 ```sh
 python -m src.postprocessing.concatenate_proteins -i test_data -o test_data/all_proteins.fasta
