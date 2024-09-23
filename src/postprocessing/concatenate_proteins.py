@@ -50,9 +50,13 @@ def main():
     n_cpus = min(args.cpu, get_n_cpus())
 
     metadata_path = base_folder / 'genomes_metadata.csv'
+    genomes_folder = base_folder / 'genomes'
 
     if not base_folder.is_dir():
         logger.error(f'Assemblies folder does not exist: {args.assemblies}')
+        sys.exit(1)
+    elif not genomes_folder.is_dir():
+        logger.error(f'Genomes folder does not exist: {genomes_folder}')
         sys.exit(1)
     elif not metadata_path.is_file():
         logger.error(f'Metadata file does not exist: {metadata_path}')
@@ -67,7 +71,7 @@ def main():
 
     logger.info('Finding relevant assembly folders')
     paths = sorted([
-        p for p in base_folder.iterdir()
+        p for p in genomes_folder.iterdir()
         if (
             p.is_dir() and 
             p.name.startswith('GC') and 
