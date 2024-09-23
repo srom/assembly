@@ -40,8 +40,6 @@ GCA_dummy0001.1
 python -m src.fetch_assemblies -l test_data/assembly_accessions.txt -o test_data
 ```
 
-Note: output folder specified with argument `-o` must exist.
-
 3. Concatenate all proteins sequences in one fasta files (optional)
 
 ```sh
