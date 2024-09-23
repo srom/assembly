@@ -1,0 +1,59 @@
+ANI report for assembly: GCA_000337575.1
+Submitted organism: Natrialba hulunbeirensis JCM 10989 (taxid = 1227493, rank = no rank, lineage = Archaea; Euryarchaeota; Stenosarchaea group; Halobacteria; Natrialbales; Natrialbaceae; Natrialba)
+Best match: Natrialba magadii (taxid = 13769, rank = species, lineage = Archaea; Euryarchaeota; Stenosarchaea group; Halobacteria; Natrialbales; Natrialbaceae; Natrialba)
+Submitted organism has type: Yes
+Status: INCONCLUSIVE
+Confidence: LOW
+
+Table legend:
+ANI : ANI value between this assembly and the type listed in this row
+(Coverages) : query-coverage and subject-coverage of this assembly (query) and the type (subject)
+NewSeq : the count of bases best assigned to this type assembly
+CntmSeq : the portion of NewSeq allocated for purposes of evaluating contamination
+Flg : Type flags; currently: C = contaminant; E = effectively published; T = trusted species
+Assembly : Release-id of the type-assembly (this value matches the accession and assembly-name on the right column)
+Organism : Organism of this type-assembly
+(assembly_accession, assembly_name) : of this type-assembly
+
+ANI     (Coverages)   NewSeq   CntmSeq  Assembly  Flg Organism  (assembly_accession, assembly_name)
+------- ------------- -------- -------- --------- --- --------------------------------------------------------------------
+ 89.997 ( 70.9  66.3)  1011708   924216     26428     Natrialba magadii ATCC 43099 (GCA_000025625.1, ASM2562v1)
+ 90.007 ( 70.7  66.6)   324800   324800    534458     Natrialba magadii ATCC 43099 (GCA_000337875.1, ASM33787v1)
+ 89.636 ( 71.6  69.1)  2007814  2007814    533718     Natrialba chahannaoensis JCM 10990 (GCA_000337135.1, ASM33713v1)
+ 85.268 ( 24.9  22.4)    11622    11622    534118     Natrialba aegyptia DSM 13077 (GCA_000337535.1, ASM33753v1)
+ 85.134 ( 24.8  22.3)     9618     9618    534178     Natrialba taiwanensis DSM 12281 (GCA_000337595.1, ASM33759v1)
+ 85.191 ( 24.4  23.0)     5508     5508    534138     Natrialba asiatica DSM 12278 (GCA_000337555.1, ASM33755v1)
+ 84.914 ( 16.7  15.2)    13786    13786    533798     Natronolimnohabitans innermongolicus JCM 12255 (GCA_000337215.1, ASM33721v1)
+ 84.700 ( 14.3  12.9)     6334     6334  33596548     Halosolutus amylolyticus (GCA_023566055.1, ASM2356605v1)
+ 84.606 ( 15.4  14.3)    21100    21100   3705368     Halobiforma haloterrestris (GCA_900112205.1, IMG-taxon 2693429869 annotated assembly)
+ 84.601 ( 15.1  11.6)     6204     6204     26128     Haloterrigena turkmenica DSM 5511 (GCA_000025325.1, ASM2532v1)
+ 84.699 ( 15.3  14.6)     2984     2984    288868     Halopiger xanaduensis SH-6 (GCA_000217715.1, ASM21771v1)
+ 84.508 ( 14.8  14.0)     2873     2873   4011218     Halobiforma lacisalsi AJ5 (GCA_000226975.3, ASM22697v3)
+ 84.619 ( 14.9  14.5)     2410     2410  29657458     Haloterrigena alkaliphila (GCA_017352155.2, ASM1735215v2)
+ 84.670 ( 15.7  14.3)     2346     2346  20073998  E  Haloterrigena gelatinilytica (GCA_013342145.1, ASM1334214v1)
+ 84.569 ( 14.8  14.2)     1523     1523    533238     Halobiforma lacisalsi AJ5 (GCA_000336655.1, ASM33665v1)
+ 84.532 ( 14.6  16.2)      115      115  34729278     Natrinema marinum (GCA_024296685.1, ASM2429668v1)
+ 84.603 ( 13.5  12.9)        0        0   1385428     Natrinema salifodinae (GCA_000784335.1, ASM78433v1)
+ 84.556 ( 13.5  13.1)        0        0   3698328     Natrinema salifodinae (GCA_900110455.1, IMG-taxon 2671180170 annotated assembly)
+ 84.471 ( 16.9  13.2)    24729    24729  13447808  E  Natronococcus pandeyae (GCA_008122205.1, ASM812220v1)
+ 84.479 ( 12.9  14.2)     7811     7811    533738     Natrinema altunense JCM 12890 (GCA_000337155.1, ASM33715v1)
+ 84.490 ( 15.4  13.2)     5176     5176   7517918     Halopiger aswanensis (GCA_003610195.1, ASM361019v1)
+ 84.477 ( 14.7  15.3)     4996     4996   3634038     Natronobacterium texcoconense (GCA_900104065.1, IMG-taxon 2636416047 annotated assembly)
+ 84.347 ( 15.9  14.5)     4371     4371  15738588     Natronorubrum halalkaliphilum (GCA_009834785.1, ASM983478v1)
+ 84.328 ( 13.8  14.5)     1869     1869   3987328     Natrinema saccharevitans (GCA_001953745.1, ASM195374v1)
+ 84.410 ( 15.5  13.3)     1688     1688    534078     Haloterrigena salina JCM 13891 (GCA_000337495.1, ASM33749v1)
+ 84.340 ( 13.8  13.7)     1670     1670    533778     Natrinema versiforme JCM 10478 (GCA_000337195.1, ASM33719v1)
+ 84.335 ( 14.3  15.2)     1285     1285    765388     Halopiger goleimassiliensis (GCA_000455345.1, Halgo)
+ 84.457 ( 12.8  14.8)      168      168  25546288     Natrinema longum (GCA_017352095.1, ASM1735209v1)
+ 84.495 ( 14.1  12.4)        0        0  29612328     Natrinema amylolyticum (GCA_020515625.1, ASM2051562v1)
+ 84.240 ( 11.6  13.1)     6755     6755    534478     Halobiforma nitratireducens JCM 10879 (GCA_000337895.1, ASM33789v1)
+ 84.212 ( 13.9  15.4)      839      839    765408     Halopiger djelfimassiliensis (GCA_000455365.1, HdjelfamassiliensisIIH2)
+ 84.101 ( 12.5  13.5)      795      795   4013788     Natronorubrum daqingense (GCA_001971705.1, ASM197170v1)
+ 84.107 ( 12.5  15.1)      632      632    534318     Natronorubrum sulfidifaciens JCM 14089 (GCA_000337735.1, ASM33773v1)
+ 83.976 ( 15.6  13.2)     1005     1005    610638     Natronorubrum tibetense GA33 (GCA_000383975.1, ASM38397v1)
+ 84.002 ( 11.4  12.1)      462      462   4512078     Natrarchaeobaculum aegyptiacum (GCA_002156705.1, ASM215670v1)
+ 84.017 ( 15.6  13.1)      177      177    533818     Natronorubrum tibetense GA33 (GCA_000337235.1, ASM33723v1)
+ 84.066 ( 13.6  12.8)        0        0    534258     Natronococcus amylolyticus DSM 10524 (GCA_000337675.1, ASM33767v1)
+ 84.098 ( 12.5  13.5)        0        0   3992518     Natronorubrum daqingense (GCA_900156445.1, IMG-taxon 2681812915 annotated assembly)
+ 84.268 ( 13.8  13.9)     2753     2753   1144728     Natrinema thermotolerans A29 (GCA_000710605.1, HTGA29.1)
+ 84.267 ( 13.8  12.9)        0        0  46975618     Natrinema thermotolerans (GCA_031165565.1, ASM3116556v1)

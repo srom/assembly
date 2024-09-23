@@ -1,0 +1,21 @@
+##[["FCS genome report", 2, 1], {"git-rev": "v0.5.3", "run-date": "Sat May 11 14:23:03 2024", "db": {"build-date": "2023-01-24", "seqs": 3025824, "Gbp": 709.264}, "run-info": {"agg-cvg": 0.120924, "asserted-div": "arch:archaea", "inferred-primary-divs": ["prok:firmicutes", "prok:bacteria", "prok:d-proteobacteria", "prok:CFB group bacteria", "prok:g-proteobacteria", "prok:a-proteobacteria", "prok:b-proteobacteria", "prok:actinobacteria", "prok:high GC Gram+", "prok:cyanobacteria", "prok:GNS bacteria"], "corrected-primary-divs": ["arch:archaea"], "species": "Candidatus Borrarchaeota archaeon", "genome-hash": "316fbde61f919070"}}]
+#seq_id	start_pos	end_pos	seq_len	action	contam_type	coverage	contam_details
+JAEORY010000031.1	1	16318	16318	EXCLUDE	prok:firmicutes	12	Anaerocolumna xylanovorans
+JAEORY010000058.1	1	13430	13430	EXCLUDE	prok:bacteria	11	Geovibrio thiophilus
+JAEORY010000155.1	1	8449	8449	EXCLUDE	prok:firmicutes	68	Garciella nitratireducens
+JAEORY010000172.1	1	7858	7858	EXCLUDE	prok:d-proteobacteria	70	Syntrophus sp. PtaU1.Bin005
+JAEORY010000279.1	1	5775	5775	EXCLUDE	prok:CFB group bacteria	80	Maribacter sp.
+JAEORY010000302.1	1	5532	5532	EXCLUDE	prok:g-proteobacteria	52	Coxiella sp. DG_40
+JAEORY010000304.1	1	5497	5497	EXCLUDE	prok:bacteria	100	Candidatus Protochlamydia amoebophila
+JAEORY010000347.1	1	4976	4976	EXCLUDE	prok:a-proteobacteria	76	Lichenicola cladoniae
+JAEORY010000363.1	1	4765	4765	EXCLUDE	prok:firmicutes	55	Clostridioides mangenotii
+JAEORY010000433.1	1	4100	4100	EXCLUDE	prok:firmicutes	84	Eubacterium sp. UNK.MGS-25
+JAEORY010000497.1	1	3676	3676	EXCLUDE	prok:bacteria	52	Candidatus Brocadia sinica
+JAEORY010000512.1	1	3620	3620	EXCLUDE	prok:bacteria	83	Sedimentisphaera cyanobacteriorum
+JAEORY010000589.1	1	3159	3159	EXCLUDE	prok:d-proteobacteria	58	Smithella sp.
+JAEORY010000663.1	1	2774	2774	EXCLUDE	prok:CFB group bacteria	88	Flavobacterium geliluteum
+JAEORY010000671.1	1	2742	2742	EXCLUDE	prok:CFB group bacteria	57	Aquimarina longa
+JAEORY010000697.1	1	2624	2624	EXCLUDE	prok:chlamydias	75	Chlamydia sp. 32-24
+JAEORY010000713.1	1	2582	2582	EXCLUDE	prok:d-proteobacteria	68	Candidatus Desulfofervidus auxilii
+JAEORY010000719.1	1	2558	2558	EXCLUDE	prok:d-proteobacteria	95	Dethiosulfatarculus sandiegensis
+JAEORY010000724.1	1	2533	2533	EXCLUDE	prok:a-proteobacteria	63	Sphingobium wenxiniae

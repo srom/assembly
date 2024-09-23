@@ -1,0 +1,20 @@
+ANI report for assembly: GCA_016840645.1
+Submitted organism: Candidatus Borrarchaeota archaeon (taxid = 2799003, rank = species, lineage = Archaea; Asgard group; Candidatus Borrarchaeota)
+Best match: Candidatus Borrarchaeum weybense (taxid = 2848170, rank = species, lineage = Archaea; Asgard group; Candidatus Borrarchaeota; Candidatus Borrarchaeia; Candidatus Borrarchaeales; Candidatus Borrarchaeaceae; Candidatus Borrarchaeum)
+Submitted organism has type: No
+Status: MISASSIGNED
+Confidence: LOW
+
+Table legend:
+ANI : ANI value between this assembly and the type listed in this row
+(Coverages) : query-coverage and subject-coverage of this assembly (query) and the type (subject)
+NewSeq : the count of bases best assigned to this type assembly
+CntmSeq : the portion of NewSeq allocated for purposes of evaluating contamination
+Flg : Type flags; currently: C = contaminant; E = effectively published; T = trusted species
+Assembly : Release-id of the type-assembly (this value matches the accession and assembly-name on the right column)
+Organism : Organism of this type-assembly
+(assembly_accession, assembly_name) : of this type-assembly
+
+ANI     (Coverages)   NewSeq   CntmSeq  Assembly  Flg Organism  (assembly_accession, assembly_name)
+------- ------------- -------- -------- --------- --- --------------------------------------------------------------------
+ 90.945 ( 41.5  47.1)  1960026  1960026  27609978     Candidatus Borrarchaeum weybense (GCA_019057385.1, ASM1905738v1)

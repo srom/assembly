@@ -1,0 +1,59 @@
+ANI report for assembly: GCA_018222585.1
+Submitted organism: Paracoccaceae bacterium (taxid = 1904441, rank = species, lineage = Bacteria; Pseudomonadota; Alphaproteobacteria; Rhodobacterales; Paracoccaceae)
+Best match: Pseudooceanicola marinus (taxid = 396013, rank = species, lineage = Bacteria; Pseudomonadota; Alphaproteobacteria; Rhodobacterales; Paracoccaceae; Pseudooceanicola)
+Submitted organism has type: No
+Status: INCONCLUSIVE
+Confidence: LOW
+
+Table legend:
+ANI : ANI value between this assembly and the type listed in this row
+(Coverages) : query-coverage and subject-coverage of this assembly (query) and the type (subject)
+NewSeq : the count of bases best assigned to this type assembly
+CntmSeq : the portion of NewSeq allocated for purposes of evaluating contamination
+Flg : Type flags; currently: C = contaminant; E = effectively published; T = trusted species
+Assembly : Release-id of the type-assembly (this value matches the accession and assembly-name on the right column)
+Organism : Organism of this type-assembly
+(assembly_accession, assembly_name) : of this type-assembly
+
+ANI     (Coverages)   NewSeq   CntmSeq  Assembly  Flg Organism  (assembly_accession, assembly_name)
+------- ------------- -------- -------- --------- --- --------------------------------------------------------------------
+ 83.994 ( 39.3  44.6)  1120917  1120917   4440588     Pseudooceanicola marinus (GCA_900172385.1, Ps.marinus_CECT7751_Spades_Prokka)
+ 83.972 ( 39.0  44.7)   759402   759402   5667058     Pseudooceanicola marinus (GCA_002786295.1, L23705_abyss-scaffolds_k62_38)
+ 83.900 ( 13.9  12.2)    70440    70440   3631758     Salipiger thiooxidans (GCA_900102075.1, IMG-taxon 2615840719 annotated assembly)
+ 83.871 ( 10.3  10.1)    61019    61019   5667078     Pseudooceanicola lipolyticus (GCA_002786325.1, 157.Hcov.spades_scaffolds_517)
+ 83.581 ( 10.7  11.3)    33716    33716  22180638     Allosediminivita pacifica (GCA_014637495.1, ASM1463749v1)
+ 83.530 ( 10.7  11.3)    29544    29544   6377908     Allosediminivita pacifica (GCA_003054175.1, ASM305417v1)
+ 83.489 ( 10.8  10.5)    15485    15485  43172038     Pseudodonghicola flavimaris (GCA_030164425.1, ASM3016442v1)
+ 83.337 ( 11.5  11.2)    15222    15222  35276278     Salipiger pentaromativorans (GCA_024721115.1, ASM2472111v1)
+ 83.107 ( 13.1  12.4)    29417    29417   4011358     Salipiger profundus (GCA_001969385.1, ASM196938v1)
+ 82.985 ( 10.4  10.2)    18741    18741   4018448     Salipiger abyssi (GCA_001975705.1, ASM197570v1)
+ 83.098 ( 12.9  13.1)     6838     6838  22180398     Salipiger profundus (GCA_014637265.1, ASM1463726v1)
+ 82.162 ( 23.2  22.8)   127465   127465  27251998     Pseudooceanicola endophyticus (GCA_018760365.1, ASM1876036v1)
+ 82.164 ( 23.2  21.7)   116113   116113  15722428  E  Pseudooceanicola albus (GCA_009827095.1, ASM982709v1)
+ 82.101 ( 11.3  13.1)    10388    10388    176438     Pseudooceanicola batsensis HTCC2597 (GCA_000152725.1, ASM15272v1)
+ 82.000 ( 15.1  16.7)    61705    61705   1066758     Pseudooceanicola nanhaiensis DSM 18065 (GCA_000688295.1, ASM68829v1)
+ 81.987 ( 12.6  13.1)    18015    18015   1364378     Pseudooceanicola atlanticus (GCA_000768315.1, ASM76831v1)
+ 82.077 ( 11.7  10.1)    11497    11497  28834438     Mesobacterium pallidum (GCA_019966535.1, ASM1996653v1)
+ 82.003 ( 15.1  16.7)     4929     4929  22188258     Pseudooceanicola nanhaiensis (GCA_014645095.1, ASM1464509v1)
+ 81.862 ( 14.6  18.3)    53798    53798  23597658     Pseudooceanicola algae (GCA_003590145.2, ASM359014v2)
+ 81.797 ( 13.1  10.6)    49347    49347  22896038     Salipiger mangrovisoli (GCA_015223355.1, ASM1522335v1)
+ 81.793 ( 10.9  11.7)    27822    27822  59054078     Ponticoccus litoralis (GCA_039769985.1, ASM3976998v1)
+ 81.733 ( 12.6  11.7)    23450    23450  35863808     Alloyangia mangrovi (GCA_002300555.2, ASM230055v2)
+ 81.502 ( 11.7  11.1)    28595    28595    178398     Salipiger bermudensis HTCC2601 (GCA_000153725.1, ASM15372v1)
+ 82.985 ( 12.7  12.6)    27882    27882   3704788     Salipiger profundus (GCA_900112435.1, IMG-taxon 2693429894 annotated assembly)
+ 82.989 (  9.4  10.5)    17308    17308  22181398     Primorskyibacter flagellatus (GCA_014638275.1, ASM1463827v1)
+ 82.532 (  8.9  11.3)    39971    39971  22183518     Cribrihabitans marinus (GCA_014640375.1, ASM1464037v1)
+ 82.526 (  8.9  11.0)     6492     6492   3695868     Cribrihabitans marinus (GCA_900109035.1, IMG-taxon 2693429871 annotated assembly)
+ 82.478 ( 11.3   9.5)    18888    18888   4637268     Marinibacterium profundimaris (GCA_002210095.1, ASM221009v1)
+ 82.196 (  9.9  11.6)     1035     1035  13712958     Lutimaribacter pacificus (GCA_900142185.1, IMG-taxon 2695420927 annotated assembly)
+ 81.896 ( 10.7   9.7)    15201    15201    749648     Salipiger mucosus DSM 16094 (GCA_000442255.1, Salmuc)
+ 80.831 (  8.3  10.9)     4496     4496   3637508     Limimaricola pyoseonensis (GCA_900102015.1, IMG-taxon 2636416063 annotated assembly)
+ 85.041 (  6.0   5.6)    39672    39672  12445938     Paroceanicella profunda (GCA_005887635.2, ASM588763v2)
+ 85.028 (  6.0   8.1)    10940    10940   6716928     Roseovarius amoyensis (GCA_003260265.1, ASM326026v1)
+ 84.419 (  6.4   8.0)    30532    30532  21601288     Actibacterium naphthalenivorans (GCA_014196965.1, ASM1419696v1)
+ 83.746 (  9.6   8.8)    31680    31680   3633358     Salipiger marinus (GCA_900100085.1, IMG-taxon 2615840707 annotated assembly)
+ 83.182 (  6.8   9.4)     9352     9352   4441208     Roseovarius halotolerans (GCA_900172255.1, R.halotolerans_CECT8110_Spades_Prokka)
+ 83.288 (  8.2   8.9)     3940     3940    778478     Pseudodonghicola xiamenensis DSM 18339 (GCA_000429365.1, ASM42936v1)
+ 83.286 (  8.2   8.8)      595      595  22196698     Pseudodonghicola xiamenensis (GCA_014653505.1, ASM1465350v1)
+ 83.183 (  6.8   9.5)        0        0   7561918     Roseovarius halotolerans (GCA_003634925.1, ASM363492v1)
+ 81.034 (  6.7   8.5)    19501    19501   8189788     Frigidibacter oleivorans (GCA_003993775.1, ASM399377v1)

@@ -1,0 +1,2 @@
+status=latest
+assembly anomaly=contaminated

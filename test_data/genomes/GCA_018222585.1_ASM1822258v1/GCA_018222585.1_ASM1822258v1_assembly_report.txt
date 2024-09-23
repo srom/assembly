@@ -1,0 +1,93 @@
+# Assembly name:  ASM1822258v1
+# Organism name:  Paracoccaceae bacterium (a-proteobacteria)
+# Isolate:  P03SWT1bin.7
+# Taxid:          1904441
+# BioSample:      SAMN13827057
+# BioProject:     PRJNA484519
+# Submitter:      Ocean University of China
+# Date:           2021-04-30
+# Assembly type:  na
+# Release type:   major
+# Assembly level: Scaffold
+# Genome representation: full
+# WGS project:    JAAFAB01
+# Assembly method: SPAdes v. April-2018
+# Expected final version: yes
+# Genome coverage: 42x
+# Sequencing technology: Illumina MiSeq
+# Excluded from RefSeq: derived from metagenome; genus undefined
+# GenBank assembly accession: GCA_018222585.1
+#
+## Assembly-Units:
+## GenBank Unit Accession	RefSeq Unit Accession	Assembly-Unit name
+## GCA_018222595.1		Primary Assembly
+#
+# Ordered by chromosome/plasmid; the chromosomes/plasmids are followed by
+# unlocalized scaffolds.
+# Unplaced scaffolds are listed at the end.
+# RefSeq is equal or derived from GenBank object.
+#
+# Sequence-Name	Sequence-Role	Assigned-Molecule	Assigned-Molecule-Location/Type	GenBank-Accn	Relationship	RefSeq-Accn	Assembly-Unit	Sequence-Length	UCSC-style-name
+NODE_113_length_56017_cov_41.0982	unplaced-scaffold	na	na	JAAFAB010000015.1	<>	na	Primary Assembly	56017	na
+NODE_120_length_48414_cov_31.6501	unplaced-scaffold	na	na	JAAFAB010000016.1	<>	na	Primary Assembly	48414	na
+NODE_121_length_48084_cov_30.0227	unplaced-scaffold	na	na	JAAFAB010000017.1	<>	na	Primary Assembly	48084	na
+NODE_127_length_46077_cov_24.6285	unplaced-scaffold	na	na	JAAFAB010000018.1	<>	na	Primary Assembly	46077	na
+NODE_132_length_45034_cov_25.6345	unplaced-scaffold	na	na	JAAFAB010000019.1	<>	na	Primary Assembly	45034	na
+NODE_1369_length_2587_cov_32.5794	unplaced-scaffold	na	na	JAAFAB010000055.1	<>	na	Primary Assembly	2587	na
+NODE_137_length_44061_cov_29.0407	unplaced-scaffold	na	na	JAAFAB010000020.1	<>	na	Primary Assembly	44061	na
+NODE_1386_length_2552_cov_27.3544	unplaced-scaffold	na	na	JAAFAB010000056.1	<>	na	Primary Assembly	2552	na
+NODE_146_length_41685_cov_24.8006	unplaced-scaffold	na	na	JAAFAB010000021.1	<>	na	Primary Assembly	41685	na
+NODE_153_length_39286_cov_26.1812	unplaced-scaffold	na	na	JAAFAB010000022.1	<>	na	Primary Assembly	39286	na
+NODE_1576_length_2320_cov_27.8137	unplaced-scaffold	na	na	JAAFAB010000057.1	<>	na	Primary Assembly	2320	na
+NODE_162_length_37331_cov_27.3124	unplaced-scaffold	na	na	JAAFAB010000023.1	<>	na	Primary Assembly	37331	na
+NODE_173_length_33027_cov_26.6846	unplaced-scaffold	na	na	JAAFAB010000024.1	<>	na	Primary Assembly	33027	na
+NODE_1776_length_2097_cov_22.927	unplaced-scaffold	na	na	JAAFAB010000058.1	<>	na	Primary Assembly	2097	na
+NODE_1813_length_2063_cov_26.0249	unplaced-scaffold	na	na	JAAFAB010000059.1	<>	na	Primary Assembly	2063	na
+NODE_18_length_277405_cov_24.7731	unplaced-scaffold	na	na	JAAFAB010000005.1	<>	na	Primary Assembly	277405	na
+NODE_198_length_28319_cov_30.8835	unplaced-scaffold	na	na	JAAFAB010000025.1	<>	na	Primary Assembly	28319	na
+NODE_199_length_27606_cov_35.6134	unplaced-scaffold	na	na	JAAFAB010000026.1	<>	na	Primary Assembly	27606	na
+NODE_19_length_269394_cov_25.9052	unplaced-scaffold	na	na	JAAFAB010000006.1	<>	na	Primary Assembly	269394	na
+NODE_1_length_917872_cov_25.6451	unplaced-scaffold	na	na	JAAFAB010000001.1	<>	na	Primary Assembly	917872	na
+NODE_2009_length_1904_cov_56.324	unplaced-scaffold	na	na	JAAFAB010000060.1	<>	na	Primary Assembly	1904	na
+NODE_207_length_25653_cov_32.455	unplaced-scaffold	na	na	JAAFAB010000027.1	<>	na	Primary Assembly	25653	na
+NODE_2101_length_1842_cov_37.9552	unplaced-scaffold	na	na	JAAFAB010000061.1	<>	na	Primary Assembly	1842	na
+NODE_211_length_24212_cov_27.6897	unplaced-scaffold	na	na	JAAFAB010000028.1	<>	na	Primary Assembly	24212	na
+NODE_2179_length_1792_cov_33.4053	unplaced-scaffold	na	na	JAAFAB010000062.1	<>	na	Primary Assembly	1792	na
+NODE_2395_length_1657_cov_26.6117	unplaced-scaffold	na	na	JAAFAB010000063.1	<>	na	Primary Assembly	1657	na
+NODE_240_length_19509_cov_29.0737	unplaced-scaffold	na	na	JAAFAB010000029.1	<>	na	Primary Assembly	19509	na
+NODE_262_length_17031_cov_26.1862	unplaced-scaffold	na	na	JAAFAB010000030.1	<>	na	Primary Assembly	17031	na
+NODE_265_length_16760_cov_30.999	unplaced-scaffold	na	na	JAAFAB010000031.1	<>	na	Primary Assembly	16760	na
+NODE_26_length_182278_cov_26.4409	unplaced-scaffold	na	na	JAAFAB010000007.1	<>	na	Primary Assembly	182278	na
+NODE_277_length_15011_cov_29.3964	unplaced-scaffold	na	na	JAAFAB010000032.1	<>	na	Primary Assembly	15011	na
+NODE_286_length_13991_cov_23.8166	unplaced-scaffold	na	na	JAAFAB010000033.1	<>	na	Primary Assembly	13991	na
+NODE_288_length_13591_cov_29.1564	unplaced-scaffold	na	na	JAAFAB010000034.1	<>	na	Primary Assembly	13591	na
+NODE_299_length_13015_cov_34.6174	unplaced-scaffold	na	na	JAAFAB010000035.1	<>	na	Primary Assembly	13015	na
+NODE_2_length_840344_cov_26.4155	unplaced-scaffold	na	na	JAAFAB010000002.1	<>	na	Primary Assembly	840344	na
+NODE_306_length_12545_cov_31.9137	unplaced-scaffold	na	na	JAAFAB010000036.1	<>	na	Primary Assembly	12545	na
+NODE_314_length_11852_cov_30.4	unplaced-scaffold	na	na	JAAFAB010000037.1	<>	na	Primary Assembly	11852	na
+NODE_316_length_11597_cov_45.581	unplaced-scaffold	na	na	JAAFAB010000038.1	<>	na	Primary Assembly	11597	na
+NODE_31_length_155501_cov_26.7816	unplaced-scaffold	na	na	JAAFAB010000008.1	<>	na	Primary Assembly	155501	na
+NODE_322_length_11231_cov_29.464	unplaced-scaffold	na	na	JAAFAB010000039.1	<>	na	Primary Assembly	11231	na
+NODE_323_length_11196_cov_28.8492	unplaced-scaffold	na	na	JAAFAB010000040.1	<>	na	Primary Assembly	11196	na
+NODE_344_length_10120_cov_25.0863	unplaced-scaffold	na	na	JAAFAB010000041.1	<>	na	Primary Assembly	10120	na
+NODE_378_length_8547_cov_43.9339	unplaced-scaffold	na	na	JAAFAB010000042.1	<>	na	Primary Assembly	8547	na
+NODE_393_length_8080_cov_39.315	unplaced-scaffold	na	na	JAAFAB010000043.1	<>	na	Primary Assembly	8080	na
+NODE_394_length_8063_cov_29.2868	unplaced-scaffold	na	na	JAAFAB010000044.1	<>	na	Primary Assembly	8063	na
+NODE_3_length_726150_cov_26.8521	unplaced-scaffold	na	na	JAAFAB010000003.1	<>	na	Primary Assembly	726150	na
+NODE_419_length_7472_cov_33.1081	unplaced-scaffold	na	na	JAAFAB010000045.1	<>	na	Primary Assembly	7472	na
+NODE_449_length_6801_cov_30.279	unplaced-scaffold	na	na	JAAFAB010000046.1	<>	na	Primary Assembly	6801	na
+NODE_452_length_6737_cov_25.4315	unplaced-scaffold	na	na	JAAFAB010000047.1	<>	na	Primary Assembly	6737	na
+NODE_463_length_6549_cov_38.1617	unplaced-scaffold	na	na	JAAFAB010000048.1	<>	na	Primary Assembly	6549	na
+NODE_471_length_6420_cov_37.3037	unplaced-scaffold	na	na	JAAFAB010000049.1	<>	na	Primary Assembly	6420	na
+NODE_473_length_6412_cov_25.7942	unplaced-scaffold	na	na	JAAFAB010000050.1	<>	na	Primary Assembly	6412	na
+NODE_476_length_6379_cov_39.3996	unplaced-scaffold	na	na	JAAFAB010000051.1	<>	na	Primary Assembly	6379	na
+NODE_52_length_107979_cov_24.9606	unplaced-scaffold	na	na	JAAFAB010000009.1	<>	na	Primary Assembly	107979	na
+NODE_59_length_100855_cov_25.1312	unplaced-scaffold	na	na	JAAFAB010000010.1	<>	na	Primary Assembly	100855	na
+NODE_63_length_94867_cov_27.3696	unplaced-scaffold	na	na	JAAFAB010000011.1	<>	na	Primary Assembly	94867	na
+NODE_68_length_85052_cov_26.0312	unplaced-scaffold	na	na	JAAFAB010000012.1	<>	na	Primary Assembly	85052	na
+NODE_698_length_4403_cov_25.7242	unplaced-scaffold	na	na	JAAFAB010000052.1	<>	na	Primary Assembly	4403	na
+NODE_74_length_79509_cov_24.5894	unplaced-scaffold	na	na	JAAFAB010000013.1	<>	na	Primary Assembly	79509	na
+NODE_84_length_74047_cov_26.0116	unplaced-scaffold	na	na	JAAFAB010000014.1	<>	na	Primary Assembly	74047	na
+NODE_8_length_415914_cov_25.2963	unplaced-scaffold	na	na	JAAFAB010000004.1	<>	na	Primary Assembly	415914	na
+NODE_900_length_3534_cov_28.0489	unplaced-scaffold	na	na	JAAFAB010000053.1	<>	na	Primary Assembly	3534	na
+NODE_910_length_3513_cov_31.297	unplaced-scaffold	na	na	JAAFAB010000054.1	<>	na	Primary Assembly	3513	na
