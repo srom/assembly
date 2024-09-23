@@ -50,4 +50,4 @@ python -m src.postprocessing.concatenate_proteins -i test_data -o test_data/all_
 
 ## Outputs
 
-See folder `test_data/`.
+See example output in folder [`test_data/`](test_data), generated with [`run_test.sh`](run_test.sh).
