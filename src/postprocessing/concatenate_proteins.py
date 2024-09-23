@@ -42,7 +42,7 @@ def main():
         type=str,
         required=True,
     )
-    parser.add_argument('--n_cpus', type=int, default=4)
+    parser.add_argument('--cpu', type=int, default=4)
     args = parser.parse_args()
 
     base_folder = Path(args.assemblies)
