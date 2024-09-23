@@ -56,7 +56,7 @@ def main():
 
     logger.info(f'Predicting missing annotation for assemblies in {genomes_folder}')
     paths = [
-        p for p in base_folder.iterdir()
+        p for p in genomes_folder.iterdir()
         if (
             p.is_dir() and 
             p.name.startswith('GC') and 
