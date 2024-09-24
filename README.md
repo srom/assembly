@@ -36,6 +36,8 @@ GCA_016840645.1
 GCA_dummy0001.1
 ```
 
+Non-existent accessions (such as the last one above) are logged and reported in a file (`missing-accessions.txt`), but they won't make the execution fail and other genomes will still get downloaded. 
+
 Run command:
 
 ```sh
