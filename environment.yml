@@ -6,3 +6,4 @@ dependencies:
   - requests
   - python=3.11
   - pandas
+  - rsync
