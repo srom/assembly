@@ -25,7 +25,9 @@ Conda package TBD.
 
 ## Run
 
-1. Prepare text file with one assembly accession per file
+### Download genomes from NCBI
+
+Prepare text file with one assembly accession per file, e.g.:
 
 ```
 GCA_018222585.1
@@ -34,21 +36,21 @@ GCA_016840645.1
 GCA_dummy0001.1
 ```
 
-2. Download genomes from NCBI
+Run command:
 
 ```sh
 python -m src.fetch_assemblies -l test_data/assembly_accessions.txt -o test_data
 ```
 
-3. Predict coding sequences (CDS) with Prodigal when missing (optional)
+### Predict coding sequences (CDS) with Prodigal (optional)
 
-Suitable for prokaryotes or phages. [Prodigal](https://github.com/hyattpd/Prodigal) must be installed.
+Automatically only runs on genomes without protein fasta file available. Suitable for prokaryotes or phages. [Prodigal](https://github.com/hyattpd/Prodigal) must be installed.
 
 ```sh
 python -m src.postprocessing.predict_cds -i test_data
 ```
 
-4. Concatenate all proteins sequences in one fasta file (optional)
+### Concatenate all proteins sequences in one fasta file (optional)
 
 ```sh
 python -m src.postprocessing.concatenate_proteins -i test_data -o test_data/all_proteins.fasta
