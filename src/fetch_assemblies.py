@@ -1,5 +1,5 @@
 """
-Script to download assemlies from [NCBI](https://www.ncbi.nlm.nih.gov/).
+Script to download genomes from [NCBI](https://www.ncbi.nlm.nih.gov/).
 """
 import argparse
 import logging
