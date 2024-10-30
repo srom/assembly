@@ -196,7 +196,8 @@ def worker_main(
             df['id'] = df['protein_id'].apply(lambda protein_id: f'{protein_id}@{assembly_accession}')
             df['assembly_accession'] = assembly_accession
             columns = ['id', 'assembly_accession'] + columns
-            df[columns].to_csv(output_path, index=False, header=include_header)
+            df[columns].to_csv(output_path, index=False, header=include_header, mode='a')
+            include_header = False
 
         finally:
             if hmm_output_path.is_file():
