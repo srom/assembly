@@ -193,9 +193,10 @@ def worker_main(
         try:
             df = pd.read_csv(hmm_output_path)
             columns = df.columns.tolist()
+            df['id'] = df['protein_id'].apply(lambda protein_id: f'{protein_id}@{assembly_accession}')
             df['assembly_accession'] = assembly_accession
-            df.columns = ['assembly_accession'] + columns
-            df.to_csv(output_path, index=False, header=include_header)
+            columns = ['id', 'assembly_accession'] + columns
+            df[columns].to_csv(output_path, index=False, header=include_header)
 
         finally:
             if hmm_output_path.is_file():
