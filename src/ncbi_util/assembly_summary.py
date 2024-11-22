@@ -62,7 +62,7 @@ def parse_assembly_summary(path : os.PathLike) -> pd.DataFrame:
     """
     Parse assembly summary file from NCBI into a pandas DataFrame.
     """
-    assembly_summary_df = pd.read_csv(path, sep='\t', skiprows=1)
+    assembly_summary_df = pd.read_csv(path, sep='\t', skiprows=1, low_memory=False)
 
     columns = assembly_summary_df.columns.tolist()
     columns[0] = 'assembly_accession'
