@@ -6,7 +6,7 @@ GTDB is a fantastic resource, but the depth of some clades makes evolutionary an
 prone to strong biases (for instance, there are 39,000 E. coli genomes alone!).
 
 The goal here is to build a database that keeps as much as the known diversity as possible while 
-keeping a reasonable balance between the number of genomes in each genus.
+keeping a reasonable balance between the number of genomes in each genus (or another taxonomic level).
 
 Selection rules:
 - Keep all genera.
@@ -33,9 +33,11 @@ from src.ncbi_util.assembly_summary import parse_assembly_summary, download_late
 
 
 # High level constants
+DB_NAME = 'db_proka'
 GTDB_VERSION = '220.0'
 GTDB_BASE_PATH = 'https://data.ace.uq.edu.au/public/gtdb/data/releases'
-DEFAULT_N_SPECIES_PER_GENUS = 10
+DEFAULT_TAXONOMIC_LEVEL = 'genus'
+DEFAULT_N_SPECIES_PER_TAXON = 10
 
 # Transformed constants
 GTDB_VERSION_SHORT = GTDB_VERSION.split('.')[0]
@@ -77,17 +79,24 @@ def main():
         default=None,
     )
     parser.add_argument(
-        '-n', '--n_species_per_genus', 
+        '-t', '--taxon', 
+        type=str,
+        required=False,
+        default=DEFAULT_TAXONOMIC_LEVEL,
+    )
+    parser.add_argument(
+        '-n', '--n_species_per_taxon', 
         type=int,
         required=False,
-        default=DEFAULT_N_SPECIES_PER_GENUS,
+        default=DEFAULT_N_SPECIES_PER_TAXON,
     )
     args = parser.parse_args()
 
     output_folder = args.output_folder
     gtdb_metadata_path = args.gtdb_metadata
     assembly_summary_path = args.assembly_summary
-    n_species_per_genus = args.n_species_per_genus
+    taxon = args.taxon
+    n_species_per_taxon = args.n_species_per_taxon
 
     if not output_folder.is_dir():
         logger.error(f'Output folder does not exist: {args.output_folder}')
@@ -98,11 +107,15 @@ def main():
     elif assembly_summary_path is not None and not assembly_summary_path.is_file():
         logger.error(f'NCBI assembly summary file does not exist: {args.assembly_summary}')
         sys.exit(1)
+    elif taxon not in ('phylum', 'class', 'order', 'family', 'genus'):
+        logger.error(f'Taxon "{taxon}" is invalid. It must be one of: phylum, class, order, family or genus.')
+        sys.exit(1)
 
     logger.info('Building a phylogenetically balanced subset of genomes from GTDB r220')
     logger.info(f'output_folder       = {output_folder}')
     logger.info(f'gtdb_metadata_path  = {gtdb_metadata_path}')
-    logger.info(f'n_species_per_genus = {n_species_per_genus:,}')
+    logger.info(f'taxon               = {taxon}')
+    logger.info(f'n_species_per_taxon = {n_species_per_taxon:,}')
 
     gtdb_metadata = load_or_download_gtdb_metadata(gtdb_metadata_path, output_folder)
 
@@ -117,7 +130,7 @@ def main():
         assembly_summary_df = parse_assembly_summary(assembly_summary_path)
 
     logger.info('Selecting genomes')
-    accessions = make_selection(gtdb_metadata, n_species_per_genus)
+    accessions = make_selection(gtdb_metadata, taxon, n_species_per_taxon)
     gtdb_subset = gtdb_metadata.loc[accessions]
 
     logger.info('Updating accession versions')
@@ -126,13 +139,17 @@ def main():
     # Check that we indeed only have a single genome per species.
     assert len(gtdb_subset.drop_duplicates('gtdb_species')) == len(gtdb_subset)
 
-    logger.info('Outputting list of accessions and metadata')
+    logger.info(f'Outputting list of accessions and metadata to {output_folder}')
+    prefix = f'{DB_NAME}_r{GTDB_VERSION_SHORT}_{taxon}_{n_species_per_taxon}s'
+    assembly_list_output_path = output_folder / f'{prefix}_accessions.txt'
+    metadata_output_path = output_folder / f'{prefix}_metadata.csv'
+
     gtdb_subset.reset_index()[['assembly_accession']].to_csv(
-        output_folder / f'gtdb_metadata_r{GTDB_VERSION_SHORT}_subset_accessions.txt', 
+        assembly_list_output_path, 
         index=False,
         header=False,
     )
-    gtdb_subset.to_csv(output_folder / f'gtdb_metadata_r{GTDB_VERSION_SHORT}_subset.csv')
+    gtdb_subset.to_csv(metadata_output_path)
 
     logger.info('Stats:')
     n_archaea = len(gtdb_subset[gtdb_subset['domain'] == 'Archaea'])
@@ -147,12 +164,13 @@ def main():
     sys.exit(0)
 
 
-def make_selection(gtdb_metadata_input, n_species_per_genus):
+def make_selection(gtdb_metadata_input : pd.DataFrame, taxon : str, n_species_per_taxon : int):
     accession_list = []
+    taxon_column = f'gtdb_{taxon}'
 
     # Add number of genomes per species
     gtdb_metadata = gtdb_metadata_input[[
-        'gtdb_genus', 
+        taxon_column, 
         'gtdb_species',
         'gtdb_type_species_of_genus', 
         'gtdb_representative',
@@ -173,25 +191,25 @@ def make_selection(gtdb_metadata_input, n_species_per_genus):
         gtdb_metadata['gtdb_representative'] == 't'
     ].sort_values(
         [
-            'gtdb_genus', 
+            taxon_column, 
             'gtdb_type_species_of_genus', 
             'n_genomes_in_species',
             'checkm2_completeness',
             'checkm2_contamination',
         ], 
         ascending=[
-            True,   # Sort by genus
+            True,   # Sort by taxonomic level
             False,  # Genus type strain first
             False,  # Higher number of genomes first
             False,  # tiebreak 1: most complete genomes first
             True,   # tiebreak 2: least amount of contamination first
         ]
-    ).reset_index().set_index('gtdb_genus', drop=True)
+    ).reset_index().set_index(taxon_column, drop=True)
 
-    # Select top N genomes per genus
-    genera = sorted(set(gtdb_metadata_sorted.index))
-    for genus in genera:
-        selection_df = gtdb_metadata_sorted.loc[[genus]].head(n_species_per_genus)
+    # Select top N genomes per taxon
+    taxa = sorted(set(gtdb_metadata_sorted.index))
+    for taxon_value in taxa:
+        selection_df = gtdb_metadata_sorted.loc[[taxon_value]].head(n_species_per_taxon)
 
         accession_list.extend(
             sorted(selection_df['assembly_accession'].unique())
