@@ -141,7 +141,7 @@ def main():
 
     logger.info('Download completed.')
 
-    metadata_path = output_folder / 'genomes_metadata.csv'
+    metadata_path = output_folder / 'ncbi_assembly_summary_subset.csv'
     logger.info(f'Saving genome metadata to {metadata_path}')
     assembly_summary_df.loc[download_instructions.index].to_csv(metadata_path)
 
