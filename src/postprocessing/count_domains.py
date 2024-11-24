@@ -58,9 +58,12 @@ def main():
     )
     parser.add_argument(
         '--metadata_path', 
-        help='Path to GTDB metadata file containing assemblies to be processed. Defaults to <base_folder>/genomes_metadata.csv', 
-        type=Path,
+        help=(
+            'Path to GTDB metadata file containing assemblies to be processed. '
+            'Defaults to <base_folder>/genomes_metadata.csv'
+        ), 
         required=False,
+        type=Path,
         default=None,
     )
     parser.add_argument('--cpu', type=int, default=4)
