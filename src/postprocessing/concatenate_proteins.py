@@ -1,7 +1,8 @@
 """
 Concatenate all protein files in sub folders in one big fasta file.
 
-Protein IDs are changed from "<protein_id>" to "<protein_id>@<accession>".
+Protein IDs are changed from "<protein_id>" to "<protein_id>@<accession>$<species_name>".
+(species names are escaped by replacing anything but letters, numbers, hyphen or underscore by an underscore)
 """
 import argparse
 import logging
@@ -10,6 +11,7 @@ import sys
 from pathlib import Path
 from multiprocessing import Process, Queue
 from queue import Empty
+import re
 import subprocess
 import tempfile
 from typing import List
@@ -109,6 +111,7 @@ def main():
             i,
             paths[start:end],
             queue,
+            metadata_path,
         ))
         p.start()
         processes.append(p)
@@ -160,6 +163,7 @@ def worker_main(
     worker_ix : int, 
     paths : List[os.PathLike], 
     queue : Queue,
+    metadata_path : Path,
 ):
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(processName)-10s (%(levelname)s) %(message)s')
 
@@ -168,11 +172,15 @@ def worker_main(
     
     logger.info(f'Worker {worker_ix+1} is starting')
 
+    metadata_df = pd.read_csv(metadata_path, index_col='assembly_accession')
+
     for i, path in enumerate(paths):
         if i == 0 or (i+1) % 100 == 0 or (i+1) == len(paths):
             logger.info(f'Worker {worker_ix+1} | Processing assembly {i+1:,} / {len(paths):,}')
 
         assembly_accession = get_accession_from_path_name(path)
+        species_name = metadata_df.loc[assembly_accession, 'gtdb_species']
+        species_name_escaped = re.sub(r'[^a-zA-Z0-9\-_]', '_', species_name.strip())
 
         protein_path_gz = path / f'{path.name}_protein.faa.gz'
         if not protein_path_gz.is_file():
@@ -195,7 +203,16 @@ def worker_main(
             output_records = []
             with protein_path.open() as f_in:
                 for record in SeqIO.parse(f_in, 'fasta'):
-                    record.id = f'{record.id}@{assembly_accession}'
+                    # Add accession and species name ot protein ID.
+                    record.id = f'{record.id}@{assembly_accession}${species_name_escaped}'
+
+                    # Remove any description containing '#' as they may cause issue to downstream processes.
+                    # Prodigal protein descriptions in particular always contain several '#' characters.
+                    if '#' in record.name:
+                        record.name = ''
+                    if '#' in record.description:
+                        record.description = ''
+
                     output_records.append(record)
 
             with output_path.open('a') as f_out:

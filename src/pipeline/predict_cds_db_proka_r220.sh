@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -l walltime=24:00:00
-#PBS -l select=1:ncpus=16:mem=64gb
+#PBS -l select=1:ncpus=32:mem=64gb
 #PBS -e error_db_proka_r220_predict_cds_qsub.txt
 #PBS -o output_db_proka_r220_predict_cds_qsub.txt
 
@@ -25,6 +25,6 @@ export PATH="${HOME}/bin:${PATH}"
 python -m src.postprocessing.predict_cds \
 	-i $BASE_FOLDER \
 	--metadata_path $METADATA \
-	--cpu 16 \
+	--cpu 32 \
 	> ${HOME}/output_db_proka_r220_predict_cds.txt \
 	2> ${HOME}/error_db_proka_r220_predict_cds.txt

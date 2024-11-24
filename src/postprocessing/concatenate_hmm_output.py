@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 from multiprocessing import Process, Queue
 from queue import Empty
+import re
 import subprocess
 import tempfile
 from typing import List
@@ -169,6 +170,7 @@ def worker_main(
     suffix : str,
     paths : List[os.PathLike], 
     queue : Queue,
+    metadata_path : Path,
 ):
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(processName)-10s (%(levelname)s) %(message)s')
 
@@ -177,6 +179,8 @@ def worker_main(
     
     logger.info(f'Worker {worker_ix+1} is starting')
 
+    metadata_df = pd.read_csv(metadata_path, index_col='assembly_accession')
+
     include_header = worker_ix == 0
 
     for i, path in enumerate(paths):
@@ -184,6 +188,8 @@ def worker_main(
             logger.info(f'Worker {worker_ix+1} | Processing assembly {i+1:,} / {len(paths):,}')
 
         assembly_accession = get_accession_from_path_name(path)
+        species_name = metadata_df.loc[assembly_accession, 'gtdb_species']
+        species_name_escaped = re.sub(r'[^a-zA-Z0-9\-_]', '_', species_name.strip())
 
         hmm_output_path_gz = path / f'{path.name}_{suffix}.csv.gz'
         if not hmm_output_path_gz.is_file():
@@ -205,7 +211,8 @@ def worker_main(
         try:
             df = pd.read_csv(hmm_output_path)
             columns = df.columns.tolist()
-            df['id'] = df['protein_id'].apply(lambda protein_id: f'{protein_id}@{assembly_accession}')
+            accession_and_species = f'{assembly_accession}${species_name_escaped}'
+            df['id'] = df['protein_id'].apply(lambda protein_id: f'{protein_id}@{accession_and_species}')
             df['assembly_accession'] = assembly_accession
             columns = ['id', 'assembly_accession'] + columns
             df[columns].to_csv(output_path, index=False, header=include_header, mode='a')
