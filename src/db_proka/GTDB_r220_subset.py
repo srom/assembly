@@ -283,6 +283,9 @@ def update_accessions_with_ncbi_metadata(gtdb_subset, assembly_summary_df):
     - deletion (genome no longer available on NCBI)
 
     This function deals with both possibilities and update the metdata subset file accordingly.
+
+    BUG  : RefSeq IDs are not handled appropriately.
+    TODO : fix bug, cleanup, add comments.
     """
     accessions_from_ncbi = set(assembly_summary_df.index)
     accessions_from_ncbi_no_version = {
