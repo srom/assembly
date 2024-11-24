@@ -294,7 +294,7 @@ def make_download_instructions(
     for assembly, refseq_id in assembly_use_ref_seq:
         ftp_path = assembly_summary_df.loc[assembly, 'ftp_path']
         ftp_path = ftp_path.replace(assembly, refseq_id)
-        ftp_path = ftp_path.replace('GCA', 'GCF')
+        ftp_path = ftp_path.replace('/GCA/', '/GCF/')
         assembly_summary_df.loc[assembly, 'ftp_path'] = ftp_path
 
     subset_df = assembly_summary_df.loc[sorted(assembly_ids)]
