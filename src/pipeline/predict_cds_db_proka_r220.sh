@@ -6,6 +6,8 @@
 
 DB_PROKA_BASE=/rds/general/project/lms-warnecke-raw/live/db_proka_r220
 
+# Input variables can be set with qsub -v
+# If not set the following defaults are used:
 if [ -z "${BASE_FOLDER}" ]; then
     BASE_FOLDER=$DB_PROKA_BASE
 fi
