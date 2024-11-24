@@ -26,4 +26,3 @@ python -m src.postprocessing.predict_cds \
 	--cpu 16 \
 	> ${HOME}/output_db_proka_r220_predict_cds.txt \
 	2> ${HOME}/error_db_proka_r220_predict_cds.txt
-
