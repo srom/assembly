@@ -33,6 +33,14 @@ def main():
         type=Path,
     )
     parser.add_argument(
+        '-f', '--output_format', 
+        help='Prodigal output format', 
+        required=False,
+        type=str,
+        choices=['gff', 'gbk', 'sqn', 'sco'],
+        default='gff',
+    )
+    parser.add_argument(
         '--metadata_path', 
         help=(
             'Path to GTDB metadata file containing assemblies to be processed. '
@@ -46,6 +54,7 @@ def main():
     args = parser.parse_args()
 
     base_folder = args.base_folder
+    output_format = args.output_format
     metadata_path = args.metadata_path
     n_cpus = min(args.cpu, get_n_cpus())
 
@@ -102,6 +111,7 @@ def main():
         p = Process(target=worker_main, args=(
             i,
             paths_to_process[start:end],
+            output_format,
         ))
         p.start()
         processes.append(p)
@@ -113,7 +123,7 @@ def main():
     sys.exit(0)
 
 
-def worker_main(worker_ix : int, paths_to_process : List[os.PathLike]):
+def worker_main(worker_ix : int, paths_to_process : List[os.PathLike], output_format : str):
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(processName)-10s (%(levelname)s) %(message)s')
 
     for i, path in enumerate(paths_to_process):
@@ -145,7 +155,7 @@ def worker_main(worker_ix : int, paths_to_process : List[os.PathLike]):
                     'prodigal',
                     '-i', genome_path.resolve().as_posix(),   # input genome
                     '-o', gff_output_path,                    # annotation file
-                    '-f', 'gff',                              # output format
+                    '-f', output_format,                      # output format
                     '-a', protein_path.resolve().as_posix(),  # protein file 
                     '-d', cds_path.resolve().as_posix(),      # CDS file
                     '-q',                                     # quiet
