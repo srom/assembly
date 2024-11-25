@@ -11,6 +11,7 @@ from multiprocessing import Process
 from pathlib import Path
 import tempfile
 from typing import List
+import shutil
 
 import numpy as np
 import pandas as pd
@@ -129,29 +130,35 @@ def main():
     if len(paths) == 0:
         sys.exit(0)
 
-    n_processes = min(n_processes, len(paths))
-    n_per_process = int(np.ceil(len(paths) / n_processes))
+    with tempfile.TemporaryDirectory() as temp_dir:
+        # Copy HMM DB file to temp directory,
+        # i.e. on disk and not on network drive if running on HPC.
+        hmm_db_tmp_path = Path(temp_dir) / hmm_db.name
+        shutil.copy(hmm_db, hmm_db_tmp_path)
 
-    processes = []
-    for i in range(n_processes):
-        start = i * n_per_process
-        end = start + n_per_process
- 
-        p = Process(target=worker_main, args=(
-            i,
-            hmm_db,
-            paths[start:end],
-            use_hmmer,
-            hmmer_e_value,
-            hmmer_cut_ga,
-            mmseqs2_sensitivity,
-            n_threads_per_process,
-        ))
-        p.start()
-        processes.append(p)
+        # Run on tasks on multi processes.
+        n_processes = min(n_processes, len(paths))
+        n_per_process = int(np.ceil(len(paths) / n_processes))
+        processes = []
+        for i in range(n_processes):
+            start = i * n_per_process
+            end = start + n_per_process
+    
+            p = Process(target=worker_main, args=(
+                i,
+                hmm_db_tmp_path,
+                paths[start:end],
+                use_hmmer,
+                hmmer_e_value,
+                hmmer_cut_ga,
+                mmseqs2_sensitivity,
+                n_threads_per_process,
+            ))
+            p.start()
+            processes.append(p)
 
-    for p in processes:
-        p.join()
+        for p in processes:
+            p.join()
 
     logger.info('DONE')
     sys.exit(0)
