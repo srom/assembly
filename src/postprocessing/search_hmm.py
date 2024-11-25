@@ -9,9 +9,10 @@ import subprocess
 import sys
 from multiprocessing import Process
 from pathlib import Path
+import random
+import shutil
 import tempfile
 from typing import List
-import shutil
 
 import numpy as np
 import pandas as pd
@@ -129,6 +130,9 @@ def main():
 
     if len(paths) == 0:
         sys.exit(0)
+
+    # Shuffle
+    random.shuffle(paths)
 
     with tempfile.TemporaryDirectory() as temp_dir:
         # Copy HMM DB file to temp directory,
