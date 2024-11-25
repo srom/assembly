@@ -30,4 +30,3 @@ python -m src.postprocessing.concatenate_proteins \
 	--cpu 32 \
 	> ${HOME}/output_concatenate_proteins_db_proka_r220.txt \
 	2> ${HOME}/error_concatenate_proteins_db_proka_r220.txt
-
