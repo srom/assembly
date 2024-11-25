@@ -8,6 +8,7 @@ import argparse
 import logging
 import os
 import sys
+import re
 from pathlib import Path
 from multiprocessing import Process, Queue
 from queue import Empty
@@ -218,6 +219,10 @@ def worker_main(
                         record.name = record.name.replace(protein_id, '').strip()
                     if record.description is not None and protein_id in record.description:
                         record.description = record.description.replace(protein_id, '').strip()
+
+                    # Remove content in square brackets (typically species name)
+                    if record.description is not None and '[' in record.description:
+                        record.description = re.sub(r'\[.*?\]', '', record.description).strip()
 
                     output_records.append(record)
 
