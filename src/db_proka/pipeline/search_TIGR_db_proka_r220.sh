@@ -22,7 +22,7 @@ python -m src.postprocessing.search_hmm \
 	-i $BASE_FOLDER \
 	-d $HMM_DB \
 	--hmmer_cut_ga \
-	--n_processes 60 \
-	--n_threads_per_process 2 \
+	--n_processes 120 \
+	--n_threads_per_process 1 \
 	> ${HOME}/output_search_TIGR_db_proka_r220.txt \
 	2> ${HOME}/error_search_TIGR_db_proka_r220.txt
