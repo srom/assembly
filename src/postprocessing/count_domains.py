@@ -4,7 +4,6 @@ with one row per assembly and one column per domain containing the hit count.
 
 Columns:
 assembly_accession = GCA_XXX
-asm_name = project_xyz
 domain_1 = 0
 domain_2 = 3
 domain_3 = 1
@@ -208,10 +207,9 @@ def worker_main(
         if i == 0 or (i+1) % save_every == 0 or (i+1) == len(paths):
             logger.info(f'Worker {worker_ix + 1} | Processing assembly {i+1:,} / {len(paths):,}')
 
-        assembly_accession, asm_name = extract_metadata_from_path_name(path.name)
+        assembly_accession, _ = extract_metadata_from_path_name(path.name)
 
         data['assembly_accession'].append(assembly_accession)
-        data['asm_name'].append(asm_name)
 
         domains_path = path / f'{path.name}_{hmm_db_name}.csv.gz'
         domains_df = pd.read_csv(
@@ -254,7 +252,6 @@ def append_to_output_file(data : Dict[str, List[Union[str, int]]], output_path :
 def init_data_holder(domain_columns : List[str]):
     data = {
         'assembly_accession': [],
-        'asm_name': [],
     }
     for domain_column in domain_columns:
         data[domain_column] = []

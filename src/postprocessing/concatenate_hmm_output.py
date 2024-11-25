@@ -8,7 +8,6 @@ import sys
 from pathlib import Path
 from multiprocessing import Process, Queue
 from queue import Empty
-import re
 import subprocess
 import tempfile
 from typing import List
@@ -16,7 +15,7 @@ from typing import List
 import numpy as np
 import pandas as pd
 
-from src.utils import get_accession_from_path_name, get_n_cpus
+from src.utils import get_accession_from_path_name, get_n_cpus, escape_species_name
 
 
 logger = logging.getLogger()
@@ -189,7 +188,7 @@ def worker_main(
 
         assembly_accession = get_accession_from_path_name(path)
         species_name = metadata_df.loc[assembly_accession, 'gtdb_species']
-        species_name_escaped = re.sub(r'[^a-zA-Z0-9\-_]', '_', species_name.strip())
+        species_name_escaped = escape_species_name(species_name)
 
         hmm_output_path_gz = path / f'{path.name}_{suffix}.csv.gz'
         if not hmm_output_path_gz.is_file():

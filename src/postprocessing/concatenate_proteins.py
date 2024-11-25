@@ -11,7 +11,6 @@ import sys
 from pathlib import Path
 from multiprocessing import Process, Queue
 from queue import Empty
-import re
 import subprocess
 import tempfile
 from typing import List
@@ -20,7 +19,7 @@ import numpy as np
 import pandas as pd
 from Bio import SeqIO
 
-from src.utils import get_accession_from_path_name, get_n_cpus
+from src.utils import get_accession_from_path_name, get_n_cpus, escape_species_name
 
 
 logger = logging.getLogger()
@@ -180,7 +179,7 @@ def worker_main(
 
         assembly_accession = get_accession_from_path_name(path)
         species_name = metadata_df.loc[assembly_accession, 'gtdb_species']
-        species_name_escaped = re.sub(r'[^a-zA-Z0-9\-_]', '_', species_name.strip())
+        species_name_escaped = escape_species_name(species_name)
 
         protein_path_gz = path / f'{path.name}_protein.faa.gz'
         if not protein_path_gz.is_file():
@@ -204,14 +203,21 @@ def worker_main(
             with protein_path.open() as f_in:
                 for record in SeqIO.parse(f_in, 'fasta'):
                     # Add accession and species name ot protein ID.
+                    protein_id = record.id
                     record.id = f'{record.id}@{assembly_accession}${species_name_escaped}'
 
                     # Remove any description containing '#' as they may cause issue to downstream processes.
                     # Prodigal protein descriptions in particular always contain several '#' characters.
-                    if '#' in record.name:
+                    if record.name is not None and '#' in record.name:
                         record.name = ''
-                    if '#' in record.description:
+                    if record.description is not None and '#' in record.description:
                         record.description = ''
+
+                    # Remove protein ID from name or description
+                    if record.name is not None and protein_id in record.name:
+                        record.name = record.name.replace(protein_id, '').strip()
+                    if record.description is not None and protein_id in record.description:
+                        record.description = record.description.replace(protein_id, '').strip()
 
                     output_records.append(record)
 
