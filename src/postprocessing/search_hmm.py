@@ -223,7 +223,7 @@ def worker_main(
             delete=False,
         )
         domtblout_path = tempfile.NamedTemporaryFile(
-            suffix=f'{path.name}_{hmm_db_name}_domtblout.txt', 
+            suffix=f'_{path.name}_{hmm_db_name}_domtblout.txt', 
             delete=False,
         )
         try:
