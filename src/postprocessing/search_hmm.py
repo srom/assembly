@@ -218,6 +218,11 @@ def worker_main(
             if returncode != 0:
                 logger.error(f'Error while decompressing {protein_path_gz}')
                 continue
+        
+        output_csv_temp_path = tempfile.NamedTemporaryFile(
+            suffix='_{path.name}_{hmm_db_name}.csv', 
+            delete=False,
+        )
         try:
             # Remove any pre-existing domtblout file
             if domtblout_path.is_file():
@@ -238,7 +243,7 @@ def worker_main(
                     continue
 
                 # Process hmmer output into a CSV file
-                process_hmmer_output(domtblout_path, output_csv_path)
+                process_hmmer_output(domtblout_path, output_csv_temp_path)
             else:
                 # Run MMseqs2
                 response = run_mmseqs2_easy_search(
@@ -254,19 +259,23 @@ def worker_main(
                     continue
 
                 # Process hmmer output into a CSV file
-                process_mmseqs2_output(domtblout_path, output_csv_path)
+                process_mmseqs2_output(domtblout_path, output_csv_temp_path)
 
             # Delete domtblout file
             if domtblout_path.is_file():
                 domtblout_path.unlink()
 
-            # Compress hmmer CSV output
+            # Compress hmmer CSV output to final location
+            if output_csv_path.is_file():
+                output_csv_path.unlink()
             if output_csv_path_gz.is_file():
                 output_csv_path_gz.unlink()
-            response = subprocess.run(['gzip', output_csv_path.resolve().as_posix()], capture_output=True)
+            response = subprocess.run(
+                ['gzip', '-c', output_csv_temp_path.resolve().as_posix()], 
+                stdout=output_csv_path_gz,
+            )
             if response.returncode != 0:
-                stderr_txt = response.stderr.decode('utf-8')
-                logger.error(f'Error while compressing CSV output {output_csv_path}: {stderr_txt}')
+                logger.error(f'Error while compressing CSV output {output_csv_temp_path}')
                 continue
 
             # Change permissions
@@ -282,6 +291,8 @@ def worker_main(
         finally:
             if protein_path.is_file():
                 protein_path.unlink()
+            if output_csv_temp_path.is_file():
+                output_csv_temp_path.unlink()
 
 
 def run_hmmsearch(hmm_db, protein_path, domtblout_path, threshold_params, n_threads_per_process):
