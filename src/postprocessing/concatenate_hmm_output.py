@@ -117,6 +117,7 @@ def main():
             suffix,
             paths[start:end],
             queue,
+            metadata_path,
         ))
         p.start()
         processes.append(p)
