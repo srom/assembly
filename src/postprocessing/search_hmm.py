@@ -218,14 +218,14 @@ def worker_main(
                 logger.error(f'Error while decompressing {protein_path_gz}')
                 continue
         
-        output_csv_temp_path = tempfile.NamedTemporaryFile(
+        output_csv_temp_path = Path(tempfile.NamedTemporaryFile(
             suffix=f'_{path.name}_{hmm_db_name}.csv', 
             delete=False,
-        )
-        domtblout_path = tempfile.NamedTemporaryFile(
+        ).name)
+        domtblout_path = Path(tempfile.NamedTemporaryFile(
             suffix=f'_{path.name}_{hmm_db_name}_domtblout.txt', 
             delete=False,
-        )
+        ).name)
         try:
             if use_hmmer:
                 # Run hmmsearch
