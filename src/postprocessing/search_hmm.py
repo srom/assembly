@@ -271,9 +271,10 @@ def worker_main(
                     ['gzip', '-c', output_csv_temp_path.resolve().as_posix()], 
                     stdout=f_out,
                 )
-                if response.returncode != 0:
-                    logger.error(f'Error while compressing CSV output {output_csv_temp_path}')
-                    continue
+            if response.returncode != 0:
+                logger.error(f'Error while compressing CSV output {output_csv_temp_path}')
+                output_csv_path_gz.unlink()
+                continue
 
             # Change permissions
             response = subprocess.run(
