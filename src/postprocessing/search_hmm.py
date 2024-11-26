@@ -188,7 +188,6 @@ def worker_main(
     for i, path in enumerate(paths_to_process):
         logger.info(f'Worker {worker_ix+1} | Assembly {i+1:,} / {len(paths_to_process)}: {path.name}')
 
-        domtblout_path = path / f'{path.name}_{hmm_db_name}_domtblout.txt'
         output_csv_path = path / f'{path.name}_{hmm_db_name}.csv'
         output_csv_path_gz = path / f'{path.name}_{hmm_db_name}.csv.gz'
 
@@ -220,14 +219,14 @@ def worker_main(
                 continue
         
         output_csv_temp_path = tempfile.NamedTemporaryFile(
-            suffix='_{path.name}_{hmm_db_name}.csv', 
+            suffix=f'_{path.name}_{hmm_db_name}.csv', 
+            delete=False,
+        )
+        domtblout_path = tempfile.NamedTemporaryFile(
+            suffix=f'{path.name}_{hmm_db_name}_domtblout.txt', 
             delete=False,
         )
         try:
-            # Remove any pre-existing domtblout file
-            if domtblout_path.is_file():
-                domtblout_path.unlink()
-
             if use_hmmer:
                 # Run hmmsearch
                 response = run_hmmsearch(
