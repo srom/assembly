@@ -260,22 +260,20 @@ def worker_main(
                 # Process hmmer output into a CSV file
                 process_mmseqs2_output(domtblout_path, output_csv_temp_path)
 
-            # Delete domtblout file
-            if domtblout_path.is_file():
-                domtblout_path.unlink()
-
             # Compress hmmer CSV output to final location
             if output_csv_path.is_file():
                 output_csv_path.unlink()
             if output_csv_path_gz.is_file():
                 output_csv_path_gz.unlink()
-            response = subprocess.run(
-                ['gzip', '-c', output_csv_temp_path.resolve().as_posix()], 
-                stdout=output_csv_path_gz,
-            )
-            if response.returncode != 0:
-                logger.error(f'Error while compressing CSV output {output_csv_temp_path}')
-                continue
+
+            with output_csv_path_gz.open('wb') as f_out:
+                response = subprocess.run(
+                    ['gzip', '-c', output_csv_temp_path.resolve().as_posix()], 
+                    stdout=f_out,
+                )
+                if response.returncode != 0:
+                    logger.error(f'Error while compressing CSV output {output_csv_temp_path}')
+                    continue
 
             # Change permissions
             response = subprocess.run(
@@ -292,6 +290,8 @@ def worker_main(
                 protein_path.unlink()
             if output_csv_temp_path.is_file():
                 output_csv_temp_path.unlink()
+            if domtblout_path.is_file():
+                domtblout_path.unlink()
 
 
 def run_hmmsearch(hmm_db, protein_path, domtblout_path, threshold_params, n_threads_per_process):
