@@ -10,8 +10,8 @@ cd $HOME
 DB=/rds/general/project/lms-warnecke-raw/live/db_proka_r220/mmseqs_db/db_proka_r220
 DB_clu=/rds/general/project/lms-warnecke-raw/live/db_proka_r220/mmseqs_db/db_proka_r220_clu90
 DB_clu_rep=/rds/general/project/lms-warnecke-raw/live/db_proka_r220/mmseqs_db/db_proka_r220_clu90_rep
-DB_clu_tsv=/rds/general/project/lms-warnecke-raw/live/db_proka_r220/db_proka_r220_genus_10s_proteins_clu90.tsv
-DB_clu_fasta=/rds/general/project/lms-warnecke-raw/live/db_proka_r220/db_proka_r220_genus_10s_proteins_clu90.fasta
+output_tsv=/rds/general/project/lms-warnecke-raw/live/db_proka_r220/db_proka_r220_genus_10s_proteins_clu90.tsv
+output_fasta=/rds/general/project/lms-warnecke-raw/live/db_proka_r220/db_proka_r220_genus_10s_proteins_clu90.fasta
 MIN_SEQ_IDENTITY="0.9"
 
 . load_conda.sh
@@ -26,7 +26,7 @@ mmseqs linclust $DB $DB_clu $TMPDIR \
     2> error_linclust_db_proka_r220.txt
 
 # Output mapping file
-mmseqs createtsv $DB $DB $DB_clu $DB_clu_ts \
+mmseqs createtsv $DB $DB $DB_clu $output_tsv \
     --threads 128 \
     >> output_linclust_db_proka_r220.txt \
     2>> error_linclust_db_proka_r220.txt
@@ -37,6 +37,6 @@ mmseqs createsubdb $DB_clu $DB $DB_clu_rep \
     2>> error_linclust_db_proka_r220.txt
 
 # Output representative sequences as fasta
-mmseqs convert2fasta $DB_clu_rep $DB_clu_fasta \
+mmseqs convert2fasta $DB_clu_rep $output_fasta \
     >> output_linclust_db_proka_r220.txt \
     2>> error_linclust_db_proka_r220.txt
