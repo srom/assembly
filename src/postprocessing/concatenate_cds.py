@@ -8,7 +8,6 @@ import argparse
 import logging
 import os
 import sys
-import re
 from pathlib import Path
 from multiprocessing import Process, Queue
 from queue import Empty
