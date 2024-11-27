@@ -204,6 +204,7 @@ def worker_main(
             with cds_path.open() as f_in:
                 for record in SeqIO.parse(f_in, 'fasta'):
                     # Add accession and species name ot CDS ID.
+                    record_id = record.id
                     record.id = f'{record.id}@{assembly_accession}${species_name_escaped}'
 
                     # Remove any description containing '#' as they may cause issue to downstream processes.
@@ -212,6 +213,12 @@ def worker_main(
                         record.name = ''
                     if record.description is not None and '#' in record.description:
                         record.description = ''
+
+                    # Remove CDS ID from name or description
+                    if record.name is not None and record_id in record.name:
+                        record.name = record.name.replace(record_id, '').strip()
+                    if record.description is not None and record_id in record.description:
+                        record.description = record.description.replace(record_id, '').strip()
 
                     output_records.append(record)
 
