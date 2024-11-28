@@ -4,6 +4,8 @@
 #PBS -e error_run_domain_counts_Pfam_qsub.txt
 #PBS -o output_run_domain_counts_Pfam_qsub.txt
 
+set -e
+
 DB_PROKA_BASE=/rds/general/project/lms-warnecke-raw/live/db_proka_r220
 HMM_DB=/rds/general/project/lms-warnecke-raw/live/Pfam-A_37/Pfam-A.hmm
 
