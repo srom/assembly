@@ -20,7 +20,7 @@ echo "Print the total size of the content in gigabytes before compression"
 du -sb genomes/ | awk '{ printf "%.2f GB\n", $1/1024**3 }'
 
 echo "Create tarball of ${SMALL_DB_PATH}/genomes to ${TMPDIR}/${FILENAME}"
-tar -czvf - genomes/ > ${TMPDIR}/${FILENAME}
+tar -czf - genomes/ > ${TMPDIR}/${FILENAME}
 
 echo "Move ${TMPDIR}/${FILENAME} to ${SMALL_DB_PATH}/${FILENAME}"
 mv ${TMPDIR}/${FILENAME} ${SMALL_DB_PATH}/${FILENAME}
@@ -39,7 +39,7 @@ echo "Print the total size of the content in gigabytes before compression"
 du -sb genomes/ | awk '{ printf "%.2f GB\n", $1/1024**3 }'
 
 echo "Create tarball of ${DB_PROKA_BASE}/genomes to ${TMPDIR}/${FILENAME}"
-tar -czvf - genomes/ > ${TMPDIR}/${FILENAME}
+tar -czf - genomes/ > ${TMPDIR}/${FILENAME}
 
 echo "Move ${TMPDIR}/${FILENAME} to ${DB_PROKA_BASE}/${FILENAME}"
 mv ${TMPDIR}/${FILENAME} ${DB_PROKA_BASE}/${FILENAME}
