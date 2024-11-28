@@ -17,7 +17,7 @@ cd ${HOME}/assembly-main
 
 python -m src.db_proka.make_tree_subset \
 	-i $GTDB_FOLDER \
-	--metadata_path $METADATA \
+	-m $METADATA \
     -o $DB_PROKA_BASE \
 	> ${HOME}/output_make_tree_subset_db_proka_r220.txt \
 	2> ${HOME}/error_make_tree_subset_db_proka_r220.txt
