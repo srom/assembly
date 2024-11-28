@@ -25,6 +25,8 @@ tar -czvf - genomes/ > ${TMPDIR}/${FILENAME}
 echo "Move ${TMPDIR}/${FILENAME} to ${SMALL_DB_PATH}/${FILENAME}"
 mv ${TMPDIR}/${FILENAME} ${SMALL_DB_PATH}/${FILENAME}
 
+chmod 644 ${SMALL_DB_PATH}/${FILENAME}
+
 echo
 
 #------ Full DB
@@ -41,6 +43,8 @@ tar -czvf - genomes/ > ${TMPDIR}/${FILENAME}
 
 echo "Move ${TMPDIR}/${FILENAME} to ${DB_PROKA_BASE}/${FILENAME}"
 mv ${TMPDIR}/${FILENAME} ${DB_PROKA_BASE}/${FILENAME}
+
+chmod 644 ${DB_PROKA_BASE}/${FILENAME}
 
 #------
 
