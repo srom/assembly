@@ -19,5 +19,6 @@ python -m src.db_proka.make_small_db \
 	-i $DB_PROKA_BASE \
 	-m $METADATA \
 	-o $OUTPUT_FOLDER \
+	--cpu 32 \
 	> ${HOME}/output_make_small_db_proka_r220.txt \
 	2> ${HOME}/error_make_small_db_proka_r220.txt
