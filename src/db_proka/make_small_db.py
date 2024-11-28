@@ -225,7 +225,7 @@ def make_fasta_subset(input_path, output_path, accessions):
                     SeqIO.write(outputs, f_out, 'fasta')
                 outputs = []
 
-        if len(outputs) >= write_every:
+        if len(outputs) > 0:
             with output_path.open('w') as f_out:
                 SeqIO.write(outputs, f_out, 'fasta')
         return
