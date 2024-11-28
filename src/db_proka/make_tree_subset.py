@@ -95,7 +95,7 @@ def main():
 
 def prune_leaves_with_unknown_id(
     tree: Phylo.BaseTree.Tree, 
-    id_set: set[str],
+    id_set: Set[str],
 ) -> Phylo.BaseTree.Tree:
     """
     Prune tree leaves that do not match any of the known ids.
