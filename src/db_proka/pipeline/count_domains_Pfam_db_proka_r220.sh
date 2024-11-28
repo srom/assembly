@@ -31,6 +31,6 @@ python -m src.postprocessing.count_domains \
 	-d $HMM_DB \
     -o $OUTPUT \
     --metadata_path $METADATA \
-	--n_cpus 64 \
-    > output_run_domain_counts_Pfam.txt \
-    2> error_run_domain_counts_Pfam.txt
+	--cpu 64 \
+    > ${HOME}/output_run_domain_counts_Pfam.txt \
+    2> ${HOME}/error_run_domain_counts_Pfam.txt
