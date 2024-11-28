@@ -7,7 +7,7 @@
 set -e
 
 DB_PROKA_BASE=/rds/general/project/lms-warnecke-raw/live/db_proka_r220
-OUTPUT_FOLDER=/rds/general/project/lms-warnecke-raw/live/db_proka_r220/db_proka_r220_family_1s
+OUTPUT_FOLDER=${DB_PROKA_BASE}/db_proka_r220_family_1s
 METADATA="${OUTPUT_FOLDER}/db_proka_r220_family_1s_metadata.csv"
 
 cd $HOME
