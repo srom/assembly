@@ -4,6 +4,8 @@
 #PBS -e error_run_domain_counts_TIGR_qsub.txt
 #PBS -o output_run_domain_counts_TIGR_qsub.txt
 
+set -e
+
 DB_PROKA_BASE=/rds/general/project/lms-warnecke-raw/live/db_proka_r220
 HMM_DB=/rds/general/project/lms-warnecke-raw/live/TIGR_15/TIGR.hmm
 
