@@ -101,7 +101,6 @@ def main():
     logger.info('Create subset of summary files')
     file_types_to_process = [
         ('_all_proteins.fasta', 'fasta'),
-        ('_all_cds.fna.gz', 'fasta'),
         ('_Pfam-A_hits.csv', 'csv'),
         ('_TIGR_hits.csv', 'csv'),
         ('_Pfam-A_summary.tsv.gz', 'tsv'),
