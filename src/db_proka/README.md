@@ -2,7 +2,7 @@
 
 DB Proka release 220 (`db_proka_r220`) is a phylogenetically balanced subset of GTDB release 220.
 
-The goal is to build a database that keeps as much of the known diversity as possible while keeping a reasonable balance between the number of genomes in each genus (or another taxonomic level).
+The goal is to build a database that keeps as much of the known diversity as possible while maintaining a reasonable balance between the number of genomes in each genus (or another taxonomic level).
 
 ## Selection criteria
 
