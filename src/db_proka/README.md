@@ -15,7 +15,7 @@ Selection rules for the main database (`genus_10s`):
 
 The number of species per genus, 10, is a good tradeoff between diversity and phylogenetic balance.
 
-We also provide a smaller database, `family_1s`, that follow the same selection criteria except that the selection happens at family level, and a single species per family is retained.
+We also provide a smaller database (`family_1s`) that follows the same selection criteria except that the selection happens at family level, and a single species per family is retained.
 
 ## Stats
 
